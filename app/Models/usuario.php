@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -29,7 +29,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'contrasena',
         'remember_token',
     ];
 
@@ -40,6 +40,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'contrasena' => 'hashed',
     ];
+
+    public static function attemptLogin($correo, $contrasena, $remember = false)
+    {
+        return Auth::attempt(['email' => $correo, 'password' => $contrasena], $remember);
+    }
 }
