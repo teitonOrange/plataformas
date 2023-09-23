@@ -23,6 +23,9 @@
 				<div class="d-flex justify-content-center form_container">
 					<form action= "{{route('login')}}"method="post">
                         @csrf
+                        @if (session('message'))
+
+                        @endif
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>

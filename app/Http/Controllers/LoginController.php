@@ -20,7 +20,6 @@ class LoginController extends Controller
         auth()->logout();
 
         if (!auth()->attempt(['email'=>$request->correo,'password'=>$request->contrasena])){
-            dd('aaaaaaaaaaaaaaaaa');
             return back()->with('message','usuario no registrado o contraseña incorrecta');
         }
         return view('home');
