@@ -9,6 +9,6 @@ class LogoutController extends Controller
     public function index()
     {
         auth()->logout();
-        return view('welcome');
+        return redirect()->route('welcome');
     }
 }

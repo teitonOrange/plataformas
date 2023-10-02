@@ -23,16 +23,6 @@
 				<div class="d-flex justify-content-center form_container">
 					<form action= "{{route('login')}}"method="post">
                         @csrf
-                        @if (session('message'))
-                        <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
-                            <p>Corrige los siguientes errores:</p>
-                            <ul>
-                                @foreach ($errors->all() as $message)
-                                    <li>{{ $message }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -50,6 +40,15 @@
 				   </div>
 					</form>
 				</div>
+                @if(session('message'))
+                <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
+                    <p>Corrige los siguientes errores:</p>
+                    <ul>
+                            <li>{{session('message')}}</li>
+                    </ul>
+                </div>
+
+                @endif
                 @if (count($errors) > 0)
                 <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
                     <p>Corrige los siguientes errores:</p>
@@ -57,6 +56,7 @@
                         @foreach ($errors->all() as $message)
                             <li>{{ $message }}</li>
                         @endforeach
+
                     </ul>
                 </div>
             @endif

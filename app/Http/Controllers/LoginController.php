@@ -17,12 +17,12 @@ class LoginController extends Controller
             'contrasena'=> ['required']
         ],$mesagges);
 
-        auth()->logout();
 
         if (!auth()->attempt(['email'=>$request->correo, 'password'=>$request->contrasena])){
-            return back()->with('message','ingrese un correo para iniciar sesion');
+
+            return back()->with('message','usuario no registrado o contraseña incorrecta');
         }
-        return view('home');
+        return redirect()->route('home');
     }
 
 }
