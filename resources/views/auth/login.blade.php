@@ -24,7 +24,14 @@
 					<form action= "{{route('login')}}"method="post">
                         @csrf
                         @if (session('message'))
-
+                        <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
+                            <p>Corrige los siguientes errores:</p>
+                            <ul>
+                                @foreach ($errors->all() as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
 						<div class="input-group mb-3">
 							<div class="input-group-append">
