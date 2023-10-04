@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('travel', function (Blueprint $table) {
             $table->id();
-            $table->string('origen');
-            $table->string('destino');
-            $table->integer('cantidadAsientos');
-            $table->integer('tarifa');
+            $table->string('origin');
+            $table->string('destination');
+            $table->integer('seat_quantity');
+            $table->integer('base_rate');
             $table->timestamps();
         });
     }
