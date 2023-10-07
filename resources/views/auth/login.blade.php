@@ -44,10 +44,9 @@
                 <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
                     <p>Corrige los siguientes errores:</p>
                     <ul>
-                            <li>{{session('message')}}</li>
+                        <li>{{session('message')}}</li>
                     </ul>
                 </div>
-
                 @endif
                 @if (count($errors) > 0)
                 <div class="alert alert-danger" style="background-color: #ff8a80; color:white">

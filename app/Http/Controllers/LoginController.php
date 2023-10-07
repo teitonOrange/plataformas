@@ -17,7 +17,6 @@ class LoginController extends Controller
             'contrasena'=> ['required']
         ],$mesagges);
 
-
         if (!auth()->attempt(['email'=>$request->correo, 'password'=>$request->contrasena])){
 
             return back()->with('message','usuario no registrado o contraseña incorrecta');
