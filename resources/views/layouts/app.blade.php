@@ -7,11 +7,13 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>Turjoy</title>
     <style>
-        body { background-color: #EAEAEA;}
+        body { background-color: #EAEAEA;
+        }
     </style>
 </head>
 <body>
     <nav class="fixed-top" style="background-color: #333333">
+
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -22,7 +24,7 @@
               </div>
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
-                  <a href="{{ url('/') }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                  <a href="{{ url('/') }}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
                   <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reservar</a>
                   <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Próximamente</a>
                   <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Próximamente</a>
@@ -44,13 +46,15 @@
                         v-pre>
                         {{ Auth::user()->name }}
                         </a>
-
+                        <a href="{{ route('home') }}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Panel de Admin</a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+
+                            <a class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium hidden sm:ml-6 sm:block" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                 {{ __('Salir') }}
                             </a>
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -66,6 +70,7 @@
         @yield('content')
     </main>
 </body>
+
 <footer class="shadow m-4 mx-auto" style="background-color: #333333">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">

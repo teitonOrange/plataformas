@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -20,4 +22,6 @@
         </div>
     </div>
 </div>
+
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 @endsection
