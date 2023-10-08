@@ -68,31 +68,28 @@
     <main class="flex-grow">
         @yield('content')
     </main>
-    <footer class="shadow mx-auto" style="background-color: #333333">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <a href="{{ route('welcome') }}" class="flex items-center mb-4 sm:mb-0">
-                    <img src="{{asset('img/CodeWave2.png')}}" class="h-8 mr-3" alt="codeWaveLogo"/>
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">CodeWave</span>
-                </a>
-                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">Acerca de</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6">Políticas de privacidad</a>
-                    </li>
-                    <li>
-                        <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencias</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <hr class="my-6 sm:mx-auto" />
-            <span class="block text-sm sm:text-center text-white">© 2023
-                <a class="">CodeWave</a>. Todos los derechos reservados.</span>
+</body>
+<footer class="shadow mx-auto" style="background-color: #333333">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="{{ url('/') }}" class="flex items-center mb-4 sm:mb-0">
+                <img src="img/CodeWave2.png" class="h-8 mr-3" alt="codeWaveLogo"/>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">CodeWave</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Acerca de</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Políticas de privacidad</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencias</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contacto</a>
+                </li>
+            </ul>
         </div>
     </footer>
 </body>
