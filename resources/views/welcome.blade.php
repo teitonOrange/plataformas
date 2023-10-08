@@ -11,7 +11,7 @@
         text-shadow: 2px 2px 4px #000000;
         }
     </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+
     <body>
         <div style="background-color: #f4f4f4">
             <!-- Carousel -->
