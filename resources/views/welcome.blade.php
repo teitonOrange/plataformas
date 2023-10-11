@@ -5,10 +5,10 @@
 @section('content')
     <style>
         .just {
-        text-align: justify;
+            text-align: justify;
         }
         shadow {
-        text-shadow: 2px 2px 4px #000000;
+            text-shadow: 2px 2px 4px #000000;
         }
     </style>
 
