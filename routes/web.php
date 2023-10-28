@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
 Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
-
+Route::get('/reserveTickets',[App\Http\Controllers\TicketsController::class,'index'])->name('reserveTickets');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -32,4 +32,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/add/travel',[TravelController::class,'indexAddTravels'])->name('travels.index');
     Route::post('/addtravel',[TravelController::class,'travelCheck'])->name('travel.check');
     Route::get('/result/travels',[TravelController::class,'indexTravels'])->name('travelsAdd.index');
+
 });

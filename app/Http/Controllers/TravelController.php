@@ -94,5 +94,13 @@ class TravelController extends Controller
 
         }
     }
+    public function homeIndex(){
+
+        $travels = Travel::get()->count();
+
+        return view('home',[
+            'countTravels'=> $travels,
+        ]);
+    }
 }
 
