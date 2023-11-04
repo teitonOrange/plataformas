@@ -26,7 +26,7 @@ class TravelsImport implements ToCollection, WithHeadingRow
             }
 
             catch(\Exception $e){
-                Session::flash('lecturaError','Error en la lectura del archivo. Por favor, verifique que el archivo tenga el formato correcto.');
+                Session::flash('lecturaError','Verifique que el archivo tenga el formato correcto.');
                 return;
             }
 

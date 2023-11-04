@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if (!auth()->attempt(['email'=>$request->correo, 'password'=>$request->contrasena])){
 
-            return back()->with('message','usuario no registrado o contraseña incorrecta');
+            return back()->with('message','- Usuario no registrado o contraseña incorrecta.');
         }
         return redirect()->route('dashboard');
     }
