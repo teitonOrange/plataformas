@@ -98,9 +98,10 @@ class TravelController extends Controller
 
         $travels = Travel::get()->count();
 
-        return view('home',[
+        return view('reserveTickets',[
             'countTravels'=> $travels,
         ]);
+
     }
 }
 

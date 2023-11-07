@@ -4,15 +4,14 @@
 @endsection
 @section('content')
 
+@if($countTravels > 0)
     <body>
-        <div class="container h-100 mx-auto shadow-lg" style="background-color: white">
+        <div class="py-2 h-100 mx-auto shadow-lg" style="background-color: white">
             <div class="sm:py-16 m-4 justify-center items-center">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl lg:text-center">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Reservar pasajes</h2>
-                        <p class=" text-gray-500 dark:text-gray-200">Reserva tus pasajes para viajar a cualquier parte
-                            del
-                            país.</p>
+                        <p class=" text-gray-500 dark:text-gray-200">Reserva tus pasajes para viajar a cualquier parte del país.</p>
                         <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
 
                         <form action="">
@@ -75,13 +74,18 @@
 
 
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+        <script src="{{ asset('assets/index.js') }}"></script>
     </body>
-
-    <div class="alert alert-danger" role="alert">
-        No hay viajes disponibles
+@else
+    <center>
+    <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#FF6B6B"role="alert">
+        Por el momento no es posible realizar reservas, intente más tarde
     </div>
+    </center>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="{{ asset('assets/index.js') }}"></script>
+@endif
 @endsection

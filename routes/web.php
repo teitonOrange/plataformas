@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
 Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
-Route::get('/reserveTickets',[App\Http\Controllers\TicketsController::class,'index'])->name('reserveTickets');
+Route::get('/reserveTickets',[App\Http\Controllers\TravelController::class, 'homeIndex'])->name('reserveTickets');
 
 Route::middleware(['auth'])->group(function () {
 
