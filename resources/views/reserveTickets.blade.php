@@ -80,7 +80,7 @@
     </body>
 @else
     <center>
-    <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#FF6B6B"role="alert">
+    <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#ff8a80"role="alert">
         Por el momento no es posible realizar reservas, intente más tarde
     </div>
     </center>
