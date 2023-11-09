@@ -123,7 +123,6 @@ class TravelController extends Controller
 
     public function seatings($origin, $destination, $date)
     {
-        // Obtenemos el viaje segun el origen y destino ingresado.
         $travel = Travel::where('origin', $origin)->where('destination', $destination)->first();
 
         if ($travel) {

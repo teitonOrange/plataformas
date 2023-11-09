@@ -4,8 +4,6 @@ const selectSeat = document.getElementById('seat');
 const datePicker = document.getElementById('date');
 const baseRate = document.getElementById('base-rate');
 
-
-
 const addSeatingToSelect = (seat, travel) => {
     clearSelectSeat();
 
@@ -17,7 +15,6 @@ const addSeatingToSelect = (seat, travel) => {
     }
     baseRate.value = travel.base_rate;
 }
-
 
 const verifySeating = () => {
     const origin = selectOrigin.value;
@@ -43,6 +40,9 @@ const verifySeating = () => {
 }
 
 const clearSelectSeat = () => {
+    if(!selectSeat.value){
+        return;
+    }
     while (selectSeat.firstChild) {
         selectSeat.removeChild(selectSeat.firstChild);
     }
@@ -50,6 +50,9 @@ const clearSelectSeat = () => {
 
 
 const clearSelect = () => {
+    if(!selectDestination.value){
+        return;
+    }
     while (selectDestination.firstChild) {
         selectDestination.removeChild(selectDestination.firstChild);
     }
@@ -75,18 +78,20 @@ const addDestinationsToSelect = (destinations) => {
 const loadedDestinations = (e) => {
     const currentValue = selectOrigin.value;
     if (currentValue) {
-        // console.log(selectOrigin.value);
         fetch(`/get/destinations/${currentValue}`)
-            .then(response => response.json())
+            .then(response => {
+                console.log(response); // Agrega este registro para ver la respuesta completa
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
-                // Manipula los datos recibidos aquí
                 const destinations = data.destination;
                 console.log(destinations);
                 addDestinationsToSelect(destinations);
-                // console.log(data);
             })
             .catch(error => {
-                // Maneja los errores aquí
                 console.error('Hubo un error:', error);
             });
     }
@@ -101,8 +106,6 @@ const addOriginsToSelect = (origins) => {
     });
 }
 
-// then
-// async, await
 
 const loadedOrigins = (e) => {
     fetch('/get/origins')
@@ -121,7 +124,10 @@ const loadedOrigins = (e) => {
         });
 }
 
+
+
 document.addEventListener('DOMContentLoaded', loadedOrigins)
 selectOrigin.addEventListener('change', loadedDestinations)
 selectDestination.addEventListener('change', verifySeating)
 datePicker.addEventListener('change', verifySeating)
+

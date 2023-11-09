@@ -32,7 +32,17 @@ class TicketController extends Controller
         // Obtener viaje
         $travel = Travel::where('origin', $request->origin)->where('destination', $request->destination)->first();
 
-        return view('reserveTickets');
+        // Crear la reserva
+        $ticket = Ticket::create([
+        'code' => $request->code,
+        'seat' => $request->seat,
+        'date' => $request->date,
+        'total' => $request->total,
+        'travel_id' => $travel->id,
+        ]);
+
+        return redirect()->route('generate.pdf', [
+            'id' => $ticket->id,
+        ]);
     }
 }
-
