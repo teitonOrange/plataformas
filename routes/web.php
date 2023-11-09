@@ -26,6 +26,12 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
 Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
 Route::get('/reserveTickets',[App\Http\Controllers\TravelController::class, 'homeIndex'])->name('reserveTickets');
 
+Route::get( '/get/origins', [TravelController::class, 'obtainOrigins']);
+Route::get( '/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
+Route::get('/seating/{origin}/{destination}',  [TravelController::class, 'seatings']);
+Route::post('/check',  [TravelController::class, 'checkTravel'])->name('travels.check');
+
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [UsuarioController::class, 'dashboardIndex'])->name('dashboard');

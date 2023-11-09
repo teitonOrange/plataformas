@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-@if($countTravels > 0)
+@if($countTravels > 0 && !(Auth::user()))
     <body>
         <div class="py-2 h-100 mx-auto shadow-lg" style="background-color: white">
             <div class="sm:py-16 m-4 justify-center items-center">
@@ -36,10 +36,6 @@
                                 <select id="origins" name="origins"
                                     class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>Elige una opción</option>
-                                    <option value="US">A</option>
-                                    <option value="CA">B</option>
-                                    <option value="FR">C</option>
-                                    <option value="DE">D</option>
                                 </select>
 
                                 <!-- DESTINATION-->
@@ -47,20 +43,12 @@
                                 <select id="destinations" name="destinations"
                                     class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>Elige una opción</option>
-                                    <option value="#">A</option>
-                                    <option value="#">B</option>
-                                    <option value="#">C</option>
-                                    <option value="#">D</option>
                                 </select>
                                 <!-- SEATS-->
-                                <label class="m-4" for="seats">Asientos</label>
-                                <select id="destinations" name="destinations"
+                                <label class="m-4" for="seat">Asientos</label>
+                                <select id="seat" name="seat"
                                     class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>Elige una opción</option>
-                                    <option value="#">A</option>
-                                    <option value="#">B</option>
-                                    <option value="#">C</option>
-                                    <option value="#">D</option>
                                 </select>
 
                                 <button type="button"
@@ -80,12 +68,20 @@
     </body>
 @else
     <center>
-    <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#ff8a80"role="alert">
-        Por el momento no es posible realizar reservas, intente más tarde
-    </div>
+    @if ((Auth::user()))
+        <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#ff8a80"role="alert">
+            Cierre sesión para ingresar a la página de reservas.
+        </div>
+    @else
+        <div class="alert alert-danger text-white px-3 py-2 text-sm font-medium" style = "background-color:#ff8a80"role="alert">
+            Por el momento no es posible realizar reservas, intente más tarde.
+        </div>
+    @endif
     </center>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="{{ asset('assets/index.js') }}"></script>
 @endif
 @endsection
+
+
