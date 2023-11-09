@@ -4,6 +4,8 @@ const selectSeat = document.getElementById('seat');
 const datePicker = document.getElementById('date');
 const baseRate = document.getElementById('base-rate');
 
+
+
 const addSeatingToSelect = (seat, travel) => {
     clearSelectSeat();
 
@@ -29,11 +31,12 @@ const verifySeating = () => {
                 // Manipula los datos recibidos aquí
                 console.log(data.seat);
                 addSeatingToSelect(data.seat, data.travel);
-                // console.log(data);
+                console.log(data);
 
             })
             .catch(error => {
                 // Maneja los errores aquí
+
                 console.error('Hubo un error:', error);
             });
     }

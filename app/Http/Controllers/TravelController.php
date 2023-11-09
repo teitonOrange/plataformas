@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Ticket;
 use App\Models\Travel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -94,15 +94,7 @@ class TravelController extends Controller
 
         }
     }
-    public function homeIndex(){
 
-        $travels = Travel::get()->count();
-
-        return view('reserveTickets',[
-            'countTravels'=> $travels,
-        ]);
-
-    }
 
     public function obtainOrigins(){
         $origins = Travel::distinct()->orderBy('origin', 'asc')->pluck('origin');
@@ -147,5 +139,16 @@ class TravelController extends Controller
     {
         dd($request);
     }
+
+    public function homeIndex(){
+
+        $travels = Travel::get()->count();
+
+        return view('reserveTickets',[
+            'countTravels'=> $travels,
+        ]);
+
+    }
 }
+
 
