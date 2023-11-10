@@ -168,6 +168,4 @@
             </button>
         </form>
     </div>
-    @endif
-
 @endsection
