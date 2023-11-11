@@ -187,7 +187,7 @@
                     <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
                         {{ session()->get('lecturaError') }}
                     </p>
-                @endif
+            @endif
         </div>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     </body>

@@ -53,12 +53,15 @@ class VoucherController extends Controller {
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\'.$filename;
         Storage::disk('public')->put($path, $domPDF->output());
-
-        $voucher = Voucher::create([
-            'uri' => $path,
-            'ticket_id' => $id_ticket,
-            'date' => date('Y-m-d'),
-        ]);
+        try {
+            $voucher = Voucher::create([
+                'uri' => $path,
+                'ticket_id' => $id_ticket,
+                'date' => date('Y-m-d'),
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
 
         return view('order_success', [
             'ticket' => $ticket,
