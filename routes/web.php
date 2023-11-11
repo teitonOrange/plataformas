@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
 Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
 Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
 Route::post('/check', [TravelController::class, 'checkTravel'])->name('travels.check');
-Route::post('/reservation', [TravelController::class, 'store'])->name('add-reservation');
+Route::post('/reservation', [TicketController::class, 'store'])->name('add-reservation');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -43,5 +44,5 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-//Route::get('/travel-reservation/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
-//Route::get('download-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.download');
+Route::get('/travel-reservation/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
+Route::get('download-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.download');

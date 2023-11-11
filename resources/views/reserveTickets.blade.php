@@ -16,7 +16,8 @@
                                 del país.</p>
                             <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
 
-                            <form id="form" method="POST" action="{{route('add-reservation')}}">
+                            <form id="form" method="POST" action="{{ route('add-reservation') }}">
+                                @csrf
                                 <div class="flex flex-col items-start m-2">
                                     <!-- DATEPICKER-->
                                     <label class="m-2 mx-3" for="Fecha">Fecha del viaje</label>
@@ -57,9 +58,31 @@
                                     <input type="hidden" id="base-rate" name="base-rate" value="">
 
                                     <!-- BUTTON-->
-                                    <button type="button" id="button"
+                                    <button type="button" id="botón"
                                         class="mx-3 m-4 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
                                         Reservar</button>
+
+                                    <!-- ALERTAS-->
+                                    {{--
+                                                                        <div class="Alerta" >
+                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
+                                                                                No hay servicios disponibles para la ruta seleccionada.</p>
+                                                                        </div>
+
+                                                                        <div class="Alerta2">
+                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
+                                                                                Debe seleccionar la fecha del viaje antes de realizar la reserva.</p>
+                                                                        </div>
+                                                                        <div class="Alerta3">
+                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
+                                                                                Debe seleccionar la cantidad de asientos antes de realizar la reserva.</p>
+                                                                        </div>
+
+                                                                        <div class="Alerta4">
+                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
+                                                                                Por el momento no es posible realizar reservas, intente más tarde.</p>
+                                                                        </div>
+                                    --}}
                                 </div>
                             </form>
                         </div>
@@ -87,60 +110,9 @@
                 </div>
             @endif
         </center>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
         <script src="{{ asset('assets/index.js') }}"></script>
     @endif
-    @section('js')
-        <script src="{{ asset('assets/index.js') }}"></script>
-
-
-        {{-- SweetAlert2 --}}
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            console.log(1)
-            // Aqui va nuestro script de sweetalert
-            const button = document.getElementById("button");
-const form = document.getElementById("form");
-
-button.addEventListener('click', (e) => {
-    // Informacion Reserva
-    const selectedOrigin = document.getElementById('origins').value;
-    const selectedDestination = document.getElementById('destinations').value;
-
-    const datePicker = document.getElementById('date').value;
-    const selectedSeat = document.getElementById('seat').value;
-    const fecha = new Date(datePicker);
-    const dateFormatted = fecha.toLocaleDateString('es-ES', datePicker)
-
-    const baseRate = document.getElementById('base-rate').value;
-
-
-    e.preventDefault();
-
-    if (selectedOrigin && selectedDestination && datePicker && selectedSeat && baseRate) {
-        console.log("sdjhasjddhjsajhdjsdajhdhjsddjashjdjhsadjhsd")
-        Swal.fire({
-            title: "¿Desea continuar?",
-            text: "El total de la reserva entre " + selectedOrigin + " y " + selectedDestination +
-                " para el día " + dateFormatted + " es de " + "$" + (baseRate * selectedSeat) +
-                ` (${selectedSeat} Asientos)`,
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Confirmar",
-            cancelButtonText: "Volver",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit();
-            }
-        });
-    }
-});
-
-        </script>
-    @endsection
 @endsection
+

@@ -60,7 +60,7 @@ class VoucherController extends Controller {
             'date' => date('Y-m-d'),
         ]);
 
-        return view('client.order_success', [
+        return view('order_success', [
             'ticket' => $ticket,
             'voucher' => $voucher,
         ]);

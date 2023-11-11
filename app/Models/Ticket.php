@@ -14,7 +14,6 @@ class Ticket extends Model
         'seat',
         'total',
         'date',
-        // 'user_id',
         'travel_id',
     ];
 
