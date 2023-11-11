@@ -16,12 +16,12 @@ class SearchController extends Controller
     public function store(Request $request){
 
         if($request->code == "" || $request->code == null){
-            return back()->with('msg1','debe proporcionar un código de reserva');
+            return back()->with('msg1','Debe proporcionar un código de reserva.');
         }
 
         $ticket = Ticket::where('code', $request->code)->first();
         if (!$ticket){
-            return back()->with('msg2','la reserva '.$request->code.' no existe en sistema');
+            return back()->with('msg2','La reserva '.$request->code.' no existe en sistema.');
         } else {
             $voucher = Voucher::where('ticket_id', $ticket->id)->first();
             return view('order_success', [
