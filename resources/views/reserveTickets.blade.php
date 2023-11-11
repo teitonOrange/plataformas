@@ -55,7 +55,7 @@
                                     </select>
 
                                     <!-- BASE RATE-->
-                                    <input type="hidden" id="base-rate" name="base-rate" value="">
+                                    <input type="hidden" id="base-rate" name="base_rate" value="">
 
                                     <!-- BUTTON-->
                                     <button type="button" id="botón"

@@ -23,7 +23,7 @@ class TicketController extends Controller
         'code' => $request->code,
         'seat' => $request->seat,
         'date' => $request->date,
-        'total' => $baseRateTotal,
+        'total' => $request->base_rate * $request->seat ,
         'travel_id' => $travel->id,
         ]);
 
