@@ -5,17 +5,33 @@
 @endsection
 @section('content')
 <body>
-    <form class="mt-4" method="get" action="{{route('search.store')}}">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Ingresa el código de la reserva a buscar</label>
-            <input type="text" class="form-control" id="searching"  placeholder="Ingrese el código" name="code">
+    <div>
+        <p class="text-5xl text-gray-900 dark:text-white text-center p m-4">Buscar reserva</p>
+    </div>
+    <div class="flex justify-center">
+    <form class="mt-4" method="GET" action="{{route('search.store')}}">
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="text" name="code" id="default-search" class="block w-80 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ingresa el código a buscar">
+            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2" style="background-color:#0a74da">Buscar</button>
         </div>
-        <button name="button" id="buttonSearch" type="submit">Buscar</button>
-        @if (session()-> has('errorBusqueda'))
-            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
-                {{ session()->get('errorBusqueda') }}
-            </p>
+        @if (session()-> has('msg1'))
+        <p class="font-semibold rounded-lg my-4 text-lg text-center px-4 py-3 alert alert-danger mt-4 w-72 h-20" style="background-color: #ff8a80; color:white">
+            {{ session()->get('msg1') }}
+        </p>
+        @endif
+        @if (session()-> has('msg2'))
+        <p class="font-semibold rounded-lg my-4 text-lg text-center px-4 py-3 alert alert-danger mt-4 w-72 h-20" style="background-color: #ff8a80; color:white">
+            {{ session()->get('msg2') }}
+        </p>
         @endif
     </form>
+    </div>
 </body>
 @endsection
+

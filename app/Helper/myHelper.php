@@ -15,8 +15,6 @@ function makeMessages(){
         'seat.required' => '- Debe seleccionar un asiento.',
         'total.required' => '- Debe ingresar el total a pagar.',
         'date.required' => '- Debe ingresar la fecha de viaje.',
-
-        'code.required' => 'Debe ingresar el código de reserva.',
     ];
 
     return $messages;

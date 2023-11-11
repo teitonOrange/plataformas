@@ -15,20 +15,20 @@ class SearchController extends Controller
 
     public function store(Request $request){
 
+        if($request->code == "" || $request->code == null){
+            return back()->with('msg1','debe proporcionar un código de reserva');
+        }
+
         $ticket = Ticket::where('code', $request->code)->first();
         if (!$ticket){
-            Session::flash('errorBusqueda','No se encontró ninguna reserva con ese código.');
-            return;
+            return back()->with('msg2','la reserva '.$request->code.' no existe en sistema');
         } else {
             $voucher = Voucher::where('ticket_id', $ticket->id)->first();
-            if(!$voucher){
-                Session::flash('errorBusqueda','No se encontró ninguna reserva con ese código.');
-                return redirect()->view('searchReservation');
-            }
             return view('order_success', [
                 'ticket' => $ticket,
                 'voucher' => $voucher,
             ]);
         }
     }
+
 }
