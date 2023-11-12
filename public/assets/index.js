@@ -169,7 +169,7 @@ button.addEventListener('click', (e) => {
         Swal.fire({
             title: "¿Desea continuar?",
             text: "El total de la reserva entre " + selectedOrigin + " y " + selectedDestination +
-                " para el día " + dateFormatted + " es de " + "$" + (baseRate * selectedSeat) +
+                " para el día " + datePicker + " es de " + "$" + (baseRate * selectedSeat) +
                 ` (${selectedSeat} Asientos)`,
             icon: "warning",
             showCancelButton: true,
