@@ -93,7 +93,7 @@
                                     Total pagado
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $ticket->total }}
+                                    CLP$ {{ $ticket->total }}
                                 </td>
                             </tr>
                         </tbody>
