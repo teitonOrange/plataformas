@@ -19,6 +19,22 @@
                             <form id="form" method="POST" action="{{ route('add-reservation') }}">
                                 @csrf
                                 <div class="flex flex-col items-start m-2">
+
+
+                                    <!-- ORIGIN-->
+                                    <label class="m-4 " for="origins">Origen</label>
+                                    <select id="origins" name="origins"
+                                        class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                        <option selected>Elige una opción</option>
+                                    </select>
+
+                                    <!-- DESTINATION-->
+                                    <label class="m-4" for="destinations">Destino</label>
+                                    <select id="destinations" name="destinations"
+                                        class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                        <option selected>Elige una opción</option>
+                                    </select>
+
                                     <!-- DATEPICKER-->
                                     <label class="m-2 mx-3" for="Fecha">Fecha del viaje</label>
                                     <div class="relative max-w-sm mx-3">
@@ -34,19 +50,6 @@
                                             placeholder="Seleccione una fecha">
                                     </div>
 
-                                    <!-- ORIGIN-->
-                                    <label class="m-4 " for="origins">Origen</label>
-                                    <select id="origins" name="origins"
-                                        class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                        <option selected>Elige una opción</option>
-                                    </select>
-
-                                    <!-- DESTINATION-->
-                                    <label class="m-4" for="destinations">Destino</label>
-                                    <select id="destinations" name="destinations"
-                                        class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                        <option selected>Elige una opción</option>
-                                    </select>
                                     <!-- SEATS-->
                                     <label class="m-4" for="seats">Asientos</label>
                                     <select id="seat" name="seat"
@@ -64,15 +67,12 @@
 
                                     <!-- ALERTAS-->
                                     {{--
-                                                                        <div class="Alerta" >
-                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
-                                                                                No hay servicios disponibles para la ruta seleccionada.</p>
-                                                                        </div>
 
                                                                         <div class="Alerta2">
                                                                             <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
                                                                                 Debe seleccionar la fecha del viaje antes de realizar la reserva.</p>
                                                                         </div>
+
                                                                         <div class="Alerta3">
                                                                             <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
                                                                                 Debe seleccionar la cantidad de asientos antes de realizar la reserva.</p>

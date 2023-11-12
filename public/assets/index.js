@@ -89,17 +89,18 @@ const addDestinationsToSelect = (destinations) => {
 };
 
 const loadedDestinations = (e) => {
+    clearSelect();
     const currentValue = selectOrigin.value;
     if (currentValue) {
         fetch(`/get/destinations/${currentValue}`)
             .then((response) => {
-
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 return response.json();
             })
             .then((data) => {
+                clearSelect();
                 const destinations = data.destination;
                 if (destinations.length === 0) {
                     clearSelect();
@@ -119,6 +120,7 @@ const loadedDestinations = (e) => {
 };
 
 const addOriginsToSelect = (origins) => {
+    clearSelect();
     origins.forEach((origin) => {
         const option = document.createElement("option");
         option.value = origin;
@@ -128,6 +130,7 @@ const addOriginsToSelect = (origins) => {
 };
 
 const loadedOrigins = (e) => {
+
     fetch("/get/origins")
         .then((response) => response.json())
         .then((data) => {
