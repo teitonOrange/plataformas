@@ -14,10 +14,10 @@ class usuarioTableSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'nombre'=>'Italo Donoso Barraza',
+            'name'=>'Italo Donoso Barraza',
             'email'=>'italo.donoso@ucn.cl',
             'password'=> bcrypt('Turjoy91'),
-            'tipoUsuario' => 2,
+            'userType' => 2,
         ]);
     }
 }
