@@ -11,7 +11,7 @@
                 <div class="sm:py-16 m-4 justify-center items-center">
                     <div class="mx-auto max-w-7xl px-6 lg:px-8">
                         <div class="mx-auto max-w-2xl lg:text-center">
-                            <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Reservar pasajes</h2>
+                            <h2 class="mb-4 text-4xl tracking-tight font-bold">Reservar pasajes</h2>
                             <p class=" text-gray-500 dark:text-gray-200">Reserva tus pasajes para viajar a cualquier parte
                                 del país.</p>
                             <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">

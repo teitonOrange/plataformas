@@ -5,12 +5,21 @@
 @endsection
 
 @section('content')
-
+<style>
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 43%;
+  left: 40%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+</style>
     {{-- Detalle de la compra --}}
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center vertical-center">
         <div class="w-1/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="bg-cyan-600 p-10 rounded-t-lg"">
-                <p class="text-xl text-center">Tu pago ha sido <br> <span class="font-bold text-2xl">realizado con
+                <p class="mt-6 text-xl text-center">Tu pago ha sido <br> <span class="font-bold text-2xl">realizado con
                         éxito</span></p>
             </div>
             <div class="flex flex-col p-5">
