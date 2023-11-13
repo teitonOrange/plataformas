@@ -24,7 +24,8 @@
                 </div>
                 <hr class="w-48 h-1  bg-gray-100 border-0 rounded md:my-5 dark:bg-gray-700">
                 <div class="flex justify-center">
-                    <form class="mt-4" method="GET" action="{{ route('search.store') }}">
+                    <form class="mt-4" method="POST" action="{{ route('search.store') }}">
+                        @csrf
                         <label for="default-search"
                             class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
                         <div class="relative mb-6">
@@ -55,6 +56,7 @@
                             </p>
                         @endif
                     </form>
+
                 </div>
             </div>
         </center>
