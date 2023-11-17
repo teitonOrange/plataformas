@@ -64,25 +64,6 @@
                                     <button type="button" id="botón"
                                         class="mx-3 m-4 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
                                         Reservar</button>
-
-                                    <!-- ALERTAS-->
-                                    {{--
-
-                                                                        <div class="Alerta2">
-                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
-                                                                                Debe seleccionar la fecha del viaje antes de realizar la reserva.</p>
-                                                                        </div>
-
-                                                                        <div class="Alerta3">
-                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
-                                                                                Debe seleccionar la cantidad de asientos antes de realizar la reserva.</p>
-                                                                        </div>
-
-                                                                        <div class="Alerta4">
-                                                                            <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
-                                                                                Por el momento no es posible realizar reservas, intente más tarde.</p>
-                                                                        </div>
-                                    --}}
                                 </div>
                             </form>
                         </div>
