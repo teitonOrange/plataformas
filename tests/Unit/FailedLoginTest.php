@@ -15,7 +15,6 @@ class FailedLoginTest extends TestCase
 
     public function testFailedLogin(): void
     {
-
         $response = $this->post('/login', [
             'email' => 'italo.donoso@ucn.cl',
             'password' => 'Turjoy',
