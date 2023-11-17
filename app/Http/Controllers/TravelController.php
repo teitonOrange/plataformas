@@ -45,7 +45,7 @@ class TravelController extends Controller
 
         $mesagges = makeMessages();
 
-        $this->validate($request,['document'=> ['required','max:5120','mimes:xlsx']],$mesagges);
+        $this->validate($request,['document'=> ['required','mimes:xlsx','max:5120']],$mesagges);
 
         if($request->hasFile('document')){
             $file = request()->file('document');
