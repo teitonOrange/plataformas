@@ -22,7 +22,12 @@ function makeMessages(){
 
 function generateReservationNumber(){
     do{
-        $letters  = Str::random(4);
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $letters = '';
+        for ($i=0   ; $i < 4; $i++) {
+            $letters .= $characters[rand(0, $charactersLength - 1)];
+        }
         $numbers = mt_rand(10,99);
         $code = $letters.$numbers;
         $response = Ticket::where('code',$code)->first();
