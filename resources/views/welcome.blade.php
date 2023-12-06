@@ -141,7 +141,7 @@
                                         height="200"/>
                                     <div class="mx auto bottom-5 left-0 text-center">
                                         <div class="overflow-hidden rounded-lg bg-white py-5 px-3">
-                                            <h3 class="text-dark text-base font-semibold">Italo Donoso</h3>
+                                            <h3 class="text-dark text-base font-semibold">Ítalo Donoso</h3>
                                             <p class="text-body-color text-sm">CEO de Turjoy</p>
                                         </div>
                                     </div>

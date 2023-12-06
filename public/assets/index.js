@@ -174,7 +174,7 @@ button.addEventListener('click', (e) => {
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#0a74da",
-            cancelButtonColor: "#ff6b6b",
+            cancelButtonColor: "#ff8a80",
             confirmButtonText: "Confirmar",
             cancelButtonText: "Volver",
         }).then((result) => {

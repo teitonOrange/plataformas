@@ -17,7 +17,7 @@
         }
 
         h2 {
-            color: #a00318;
+            color: #000000;
         }
 
         h3 {
@@ -56,7 +56,7 @@
 </head>
 
 <body>
-    <h1 class=" title">Comprobante de Reserva de Pasaje: {{ $ticket->code }}</h1>
+    <h1 class=" title">Reserva {{ $ticket->code }}</h1>
     <div>
         <h3>Viajes Turjoy</h3>
         <h3>Fecha:

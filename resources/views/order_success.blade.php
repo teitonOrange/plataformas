@@ -18,7 +18,7 @@
     {{-- Detalle de la compra --}}
     <div class="flex flex-col items-center vertical-center">
         <div class="w-1/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="bg-cyan-600 p-10 rounded-t-lg"">
+            <div class="bg-cyan-600 p-10 rounded-t-lg">
                 <p class="mt-6 text-xl text-center">Tu pago ha sido <br> <span class="font-bold text-2xl">realizado con
                         éxito</span></p>
             </div>
@@ -102,12 +102,12 @@
             </div>
             <div class="flex items-center justify-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <a href="{{ route('pdf.download', ['id' => $voucher->id]) }}"
-                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    class="text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" style="background-color: #2ecc71">
                     Descargar Comprobante
 
                 </a>
                 <a href="{{ route('welcome') }}" type="button"
-                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    class="text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" style="background-color: #ff6b6b">
                     Finalizar
                 </a>
             </div>

@@ -24,10 +24,13 @@
                 </div>
                 <hr class="w-48 h-1  bg-gray-100 border-0 rounded md:my-5 dark:bg-gray-700">
                 <div class="flex justify-center">
-                    <form class="mt-4" method="POST" action="{{ route('search.store') }}">
+                    <form data-tooltip-target="tooltip-default"  data-tooltip-placement="top" class="mt-4" method="POST" action="{{ route('search.store') }}">
                         @csrf
                         <label for="default-search"
                             class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
+                        <div id="tooltip-default" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Su código debe ser  del tipo XXXX11
+                        </div>
                         <div class="relative mb-6">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -56,7 +59,6 @@
                             </p>
                         @endif
                     </form>
-
                 </div>
             </div>
         </center>
