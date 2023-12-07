@@ -80,8 +80,8 @@
                                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cargar rutas</a>
                                             </li>
                                             <li>
-                                                <a
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Próximamente</a>
+                                                <a  href="{{ route('report') }}"
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reporte de Reservas</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}"

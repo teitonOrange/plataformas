@@ -15,6 +15,11 @@ function makeMessages(){
         'seat.required' => '- Debe seleccionar un asiento.',
         'total.required' => '- Debe ingresar el total a pagar.',
         'date.required' => '- Debe ingresar la fecha de viaje.',
+        'date.date' => '- Debe ingresar una fecha válida.',
+        'date1.required' => '- Debe ingresar la fecha de inicio de la consulta.',
+        'date1.date' => '- Debe ingresar una fecha válida.',
+        'date2.required' => '- Debe ingresar la fecha de término de la consulta.',
+        'date2.date' => '- Debe ingresar una fecha válida.',
     ];
 
     return $messages;

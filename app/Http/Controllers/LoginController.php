@@ -21,7 +21,7 @@ class LoginController extends Controller
 
             return back()->with('message','- Usuario no registrado o contraseña incorrecta.');
         }
-        return redirect()->route('dashboard');
+        return redirect()->route('report');
     }
 
 }

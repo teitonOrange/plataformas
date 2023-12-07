@@ -40,9 +40,12 @@ Route::post('/check', [TravelController::class, 'checkTravel'])->name('travels.c
 Route::post('/reservation', [TicketController::class, 'store'])->name('add-reservation');
 
 
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [UsuarioController::class, 'dashboardIndex'])->name('dashboard');
+    Route::get('/report', [App\Http\Controllers\ReportController::class, 'index'])->name('report');
+    Route::post('/report', [App\Http\Controllers\ReportController::class, 'searchToDate'])->name('report.search');
     Route::get('/add/travel',[TravelController::class,'indexAddTravels'])->name('travels.index');
     Route::post('/addtravel',[TravelController::class,'travelCheck'])->name('travel.check');
     Route::get('/result/travels',[TravelController::class,'indexTravels'])->name('travelsAdd.index');

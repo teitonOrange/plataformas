@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
+
+
     public function store(Request $request)
     {
         // Generar el numero de reserva
