@@ -22,7 +22,8 @@ class SearchController extends Controller
         $ticket = Ticket::where('code', $request->code)->first();
         if (!$ticket){
             return back()->with('msg2','La reserva '.$request->code.' no existe en sistema.');
-        } else {
+        }
+        else {
             $voucher = Voucher::where('ticket_id', $ticket->id)->first();
             return view('order_success', [
                 'ticket' => $ticket,

@@ -44,8 +44,15 @@
                                             class="mx-3 m text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
                                             Buscar reservas
                                 </button>
+                                <a type="button" id="botón" href="{{ route('report') }}" class="mx-3 m text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+                                    Recargar búsqueda
+                                 </a>
                             </center>
+
                         </form>
+
+
+
                         @if (session('message'))
                             <div class="alert text-center alert-danger mb-4" style="background-color: #ff8a80; color:white">
                                 <p>Corrige los siguientes errores:</p>
@@ -64,12 +71,15 @@
 
                                 </ul>
                             </div>
-                        @endif
+                        @else
 
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase text-center bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Número
+                                    </th>
                                     <th scope="col" class="px-6 py-3">
                                         Código de la reserva
                                     </th>
@@ -98,15 +108,20 @@
                                     <tr
                                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $numero++}}
+                                        </th>
+                                        <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $ticket->code }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $ticket->created_at }}
+                                            {{date('d/m/Y', strtotime($ticket->date )) }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $ticket->date }}
+                                            {{date('d/m/Y h:i:s', strtotime($ticket->created_at)) }}
                                         </td>
+
                                         <td class="px-6 py-4">
                                             {{ $ticket->travelDates->origin }}
                                         </td>
@@ -123,6 +138,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>
