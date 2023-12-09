@@ -159,8 +159,7 @@ button.addEventListener('click', (e) => {
     const datePicker = document.getElementById('date').value;
     const selectedSeat = document.getElementById('seat').value;
     const fecha = new Date(datePicker);
-    fecha.setMinutes(fecha.getMinutes() + fecha.getTimezoneOffset());
-    const dateFormatted = fecha.toLocaleDateString('es-CL', {year: 'numeric', month: '2-digit', day: '2-digit'});
+    const dateFormatted = fecha.toLocaleDateString('es-ES', datePicker)
     const baseRate = document.getElementById('base-rate').value;
 
     e.preventDefault();
@@ -170,7 +169,7 @@ button.addEventListener('click', (e) => {
         Swal.fire({
             title: "¿Desea continuar?",
             text: "El total de la reserva entre " + selectedOrigin + " y " + selectedDestination +
-                " para el día " + dateFormatted + " es de " + "$" + (baseRate * selectedSeat) +
+                " para el día " + datePicker + " es de " + "$" + (baseRate * selectedSeat) +
                 ` (${selectedSeat} Asientos)`,
             icon: "warning",
             showCancelButton: true,
@@ -185,35 +184,48 @@ button.addEventListener('click', (e) => {
             }
         });
     }
-    else if (selectOrigin && selectDestination && selectSeat && !datePicker && !baseRate || selectOrigin && selectDestination && selectSeat && !datePicker && baseRate) {
+    else if (selectedOrigin == "Elige una opción") {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debe seleccionar el origen del viaje antes de realizar la reserva",
+            background: '#ff8a80',
+          });
+    }
+    else if (!selectedDestination) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debe seleccionar el destino del viaje antes de realizar la reserva",
+            background: '#ff8a80',
+          });
+    }
+
+    else if (!datePicker) {
+        console.log(selectedSeat);
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Debe seleccionar la fecha del viaje antes de realizar la reserva",
             background: '#ff8a80',
-
           });
     }
-    else if (selectOrigin && selectDestination && datePicker && !selectSeat && !baseRate){
+    else if (selectedSeat == "Elige una opción") {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Debe seleccionar la cantidad de asientos antes de realizar la reserva",
+            text: "Debe seleccionar la cantidad de asientos del viaje antes de realizar la reserva",
             background: '#ff8a80',
-
           });
     }
-    else if(selectOrigin && !selectDestination && datePicker && !selectSeat && !baseRate){
+    else {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Debe seleccionar un destino antes de realizar la reserva",
+            text: "Por favor asegúrese de completar todos los campos",
             background: '#ff8a80',
-
           });
     }
-
-
 });
 
 

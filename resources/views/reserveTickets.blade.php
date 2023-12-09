@@ -32,7 +32,7 @@
                                     <label class="m-4 " for="origins">Origen</label>
                                     <select id="origins" name="origins"
                                         class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                        <option selected value = "">Elige una opción</option>
+                                        <option selected >Elige una opción</option>
 
                                     </select>
 
@@ -40,7 +40,7 @@
                                     <label class="m-4" for="destinations">Destino</label>
                                     <select id="destinations" name="destinations"
                                         class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                        <option selected value = "">Elige una opción</option>
+                                        <option selected >Elige una opción</option>
                                     </select>
 
                                     <!-- DATEPICKER-->
@@ -62,7 +62,7 @@
                                     <label class="m-4" for="seats">Asientos</label>
                                     <select id="seat" name="seat"
                                         class="mx-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                        <option selected value = "">Elige una opción</option>
+                                        <option selected >Elige una opción</option>
                                     </select>
 
                                     <!-- BASE RATE-->
