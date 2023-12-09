@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Voucher;
 use Session;
+use DB;
 
 class SearchController extends Controller
 {
@@ -19,7 +20,7 @@ class SearchController extends Controller
             return back()->with('msg1','Debe proporcionar un código de reserva.');
         }
 
-        $ticket = Ticket::where('code', $request->code)->first();
+        $ticket = Ticket::where(DB::raw('BINARY `code`'), $request->code)->first();
         if (!$ticket){
             return back()->with('msg2','La reserva '.$request->code.' no existe en sistema.');
         }
