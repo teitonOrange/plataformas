@@ -27,45 +27,51 @@ class VoucherController extends Controller {
         return response()->download($path, $filename, ['Content-Type' => $mimeType]);
     }
 
+    // Añair trycatch
     public function generatePDF($id_ticket)
     {
-        $ticket = Ticket::findOrFail($id_ticket);
+        try{
+            $ticket = Ticket::findOrFail($id_ticket);
 
-        // Crear una instacia de Dompdf
-        $domPDF = new Dompdf();
+            // Crear una instacia de Dompdf
+            $domPDF = new Dompdf();
 
-        $data = [
-            'ticket' => $ticket,
-            'date' => date('d-m-Y'),
-        ];
+            $data = [
+                'ticket' => $ticket,
+                'date' => date('d-m-Y'),
+            ];
 
-        $view_html = view('voucher.pdf', $data)->render();
+            $view_html = view('voucher.pdf', $data)->render();
 
-        $domPDF->loadHtml($view_html);
+            $domPDF->loadHtml($view_html);
 
-        $domPDF->setPaper('A4', 'portrait');
+            $domPDF->setPaper('A4', 'portrait');
 
-        $domPDF->render();
+            $domPDF->render();
 
-        // Generar nombre de archivo aleatorio
-        $filename = $ticket->code.'.pdf';
+            // Generar nombre de archivo aleatorio
+            $filename = $ticket->code.'.pdf';
 
-        // Guardar el PDF en la carpeta public
-        $path = 'pdfs\\'.$filename;
-        Storage::disk('public')->put($path, $domPDF->output());
-        try {
-            $voucher = Voucher::create([
-                'uri' => $path,
-                'ticket_id' => $id_ticket,
-                'date' => date('Y-m-d'),
+            // Guardar el PDF en la carpeta public
+            $path = 'pdfs\\'.$filename;
+            Storage::disk('public')->put($path, $domPDF->output());
+            try {
+                $voucher = Voucher::create([
+                    'uri' => $path,
+                    'ticket_id' => $id_ticket,
+                    'date' => date('Y-m-d'),
+                ]);
+            } catch (\Exception $e) {
+                return $e->getMessage();
+            }
+
+            return view('order_success', [
+                'ticket' => $ticket,
+                'voucher' => $voucher,
             ]);
-        } catch (\Exception $e) {
-            return $e->getMessage();
         }
-
-        return view('order_success', [
-            'ticket' => $ticket,
-            'voucher' => $voucher,
-        ]);
+        catch(\Exception $e){
+            return redirect()->back()->with('error', 'Intente más tarde.');
+        }
     }
 }

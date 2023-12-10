@@ -166,6 +166,15 @@ button.addEventListener('click', (e) => {
 
     if (selectedOrigin && selectedDestination && datePicker && selectedSeat && baseRate) {
 
+        if (selectedSeat <= 0){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "La cantidad de asientos no puede ser menor o igual a 0",
+                background: '#ff8a80',
+              });
+        }
+
         Swal.fire({
             title: "¿Desea continuar?",
             text: "El total de la reserva entre " + selectedOrigin + " y " + selectedDestination +
